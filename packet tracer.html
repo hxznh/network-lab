@@ -1,0 +1,786 @@
+<!doctype html>
+<html style='font-size:14px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>packet tracer</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+/* 背景颜色 字体 */
+:root {
+    --side-bar-bg-color: #d9e2f350;
+    --control-text-color: #777;
+    font-family:  "YaHei", "Consolas";
+}
+
+/* 平时不用删除线，所以把删除线的样式改成了原本 code 的样式, 灰底黑字。 用于标识关键字等 */
+/* 原 code 样式修改成淡红底红字加粗，用于标识重要代码 */
+del {
+    text-decoration: none;
+    border: 1px solid #e7eaed;
+    background-color: #f3f4f4;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+/* 行内代码 */
+code {
+    background-color: #fabcbc4a;
+    color: #cb256a;
+    font-weight: bold;
+    padding: 0 2px 0 2px;
+    font-size: 0.9em;
+}
+
+/* 页边距 */
+#write {
+  	padding: 40px;
+}
+
+/* 加粗字体 */
+strong{
+    font-family: Consolas, "Microsoft YaHei";
+}
+
+p {
+    font-family: "Consolas", "YaHei",    "Open Sans";
+}
+
+/* 标题和大纲字体 */
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Consolas", "YaHei";
+}
+
+/* 修改了 标题背景 和 左内边距 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-left: 0rem;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+    background-color:#cce5ff;
+    font-family:  "YaHei", "Consolas";
+}
+
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1.1em;
+}
+h6 {
+   font-size: 1.1em;
+    color: #777;
+}
+
+/* 引用 */
+blockquote {
+    border-left: 4px solid #65ac42;
+    line-height: 2em;
+    padding: 0 15px;
+    color: #777777;
+    background-color: #f8f8f8;
+}
+
+/* 高亮 */
+mark{
+    background:#fff;
+    color:#c71010
+}
+
+/* 左侧侧边栏字体大小 */
+.sidebar-content-content {
+    /* font-size: 18px; */
+    font-size: 14px;
+    font-family:  "KaiTi", "Consolas";
+}
+
+/* 大纲行高 */
+#outline-content {
+    display: block;
+    /* height: 100%; */
+    height: 50%;
+    overflow-x: hidden;
+    /* line-height: 1.1rem; */
+    line-height: 1.0rem;
+    /* 右边距 */
+    padding-right: 10px;
+}
+
+/* 修改了侧边栏左内边距 */
+.outline-content {
+    /* padding-left: 18px; */
+    padding-left: 5px;
+}
+
+/* 列表左边距 */
+ul, ol {
+    margin-left: 10px;
+    padding-left: 8px;
+    /* padding-left: 30px; */
+}
+
+/* 大纲标题分级 左边距 */
+.outline-h2>.outline-item {
+    /* padding-left: 1em; */
+    padding-left: 0.9em;
+}
+.outline-h3>.outline-item {
+    /* padding-left: 2em; */
+    padding-left: 1.8em;
+}
+.outline-h4>.outline-item {
+    padding-left: 3em;
+    padding-left: 2.7em;
+}
+.outline-h5>.outline-item {
+    /* padding-left: 4em; */
+    padding-left: 3.6em;
+}
+.outline-h6>.outline-item {
+    /* padding-left: 5em; */
+    padding-left: 4.5em;
+}
+
+/* 左侧边栏字体大小 */
+.sidebar-content-content {
+    font-size: 12px;
+}
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><p>&nbsp;</p><h1><a name="packet-tracer-实验" class="md-header-anchor"></a><span>Packet Tracer 实验</span></h1><h2><a name="1直接连接两台-pc-构建-lan" class="md-header-anchor"></a><span>1.直接连接两台 PC 构建 LAN</span></h2><ul><li><span>将两台 PC 直接连接构成一个网络。注意：直接连接需使用交叉线.</span></li><li><span>进行两台 PC 的基本网络配置，只需要配置 IP 地址即可，然后相互 ping 通即成功。</span></li></ul><p><img src="packet%20tracer.assets/image-20221215161444335.png" referrerpolicy="no-referrer" alt="image-20221215161444335"></p><p><span>从上图可以看到两台PC已经连通，然后可使用如下两种方式进行ping通</span></p><p><span>使用命令行工具</span></p><p><img src="packet%20tracer.assets/image-20221215161522512.png" alt="image-20221215161522512" style="zoom: 67%;" /></p><h2><a name="2用交换机构建-lan" class="md-header-anchor"></a><span>2.用交换机构建 LAN</span></h2><p><span>构建如下拓扑结构的局域网（并设置好各个PC的IP地址）：</span></p><p><img src="packet%20tracer.assets/image-20221215162320741.png" alt="image-20221215162320741" style="zoom:67%;" /></p><p><span>4台主机网络配置如下</span></p><p><img src="packet%20tracer.assets/image-20221215162358116.png" alt="image-20221215162358116" style="zoom:50%;" /></p><ul><li><strong><span>问题一 PC0 能否 ping 通 PC1、PC2、PC3 ？</span></strong></li></ul><blockquote><p><span>PC0与PC1在同一子网，所以PC0能ping通PC1，但不能ping通PC,2、PC3。</span></p></blockquote><p><img src="packet%20tracer.assets/image-20221215162601726.png" alt="image-20221215162601726" style="zoom:67%;" /></p><ul><li><strong><span>问题二PC3能否ping 通PC0、PC1、PC2 ？为什么</span></strong></li></ul><blockquote><p><span>PC3与PC2在同一子网，所以PC3能ping通PC2，但不能ping通PC0、PC1。</span></p></blockquote><p><img src="packet%20tracer.assets/image-20221215162653702.png" alt="image-20221215162653702" style="zoom:50%;" /></p><ul><li><strong><span>问题三 将 4 台 PC 的掩码都改为 255.255.0.0 ，它们相互能 ping 通吗？为什么？</span></strong></li></ul><blockquote><p><span>相互之间能ping通。如果掩码为</span><code>255.255.255.0</code><span>，此时PC0、PC1网络号为</span><code>192.168.1.0</code><span>和PC2、PC3网络号是</span><code>192.168.2.0</code><span>，二者处于不同的子网，他们之间不能互通。</span>
+<span>而掩码改为</span><code>255.255.0.0</code><span>，他们的网络号都为</span><code>192.168.0.0</code><span>，他们之间属于同一局域网下，可以互通。</span></p></blockquote><p><img src="packet%20tracer.assets/image-20221215170216072.png" alt="image-20221215170216072" style="zoom:67%;" /></p><p><strong><span>问题四 使用二层交换机连接的网络需要配置网关吗？为什么？</span></strong></p><blockquote><p><span>需要。因为这是两个不同的子网，网关用于在2个网络间建立传输连接，使不同网络上的主机间可以建立起跨越多个网络的级联的、点对点的传输连接。</span></p></blockquote><p>&nbsp;</p><p><span>![(packet%20tracer.assets/image-20221215162314056.png)</span></p><h2><a name="交换机接口地址列表" class="md-header-anchor"></a><span>交换机接口地址列表</span></h2><p><span>二层交换机是一种即插即用的多接口设备，它对于收到的帧有 3 种处理方式：广播、转发和丢弃（请弄清楚何时进行何种操作）。那么，要转发成功，则交换机中必须要有接口地址列表即 MAC 表，该表是交换机通过学习自动得到的！</span></p><p><span>仍然构建上图的拓扑结构，并配置各计算机的 IP 在同一个一个子网，使用工具栏中的放大镜点击某交换机如左边的 Switch3</span><code>（图中的交换机0）</code><span>，选择 MAC Table，可以看到最初交换机的 MAC 表是空的，也即它不知道该怎样转发帧（那么它将如何处理？），用 PC0 访问（ping）PC1 后，再查看该交换机的 MAC 表，现在有相应的记录，请思考如何得来。随着网络通信的增加，各交换机都将生成自己完整的 MAC  表，此时交换机的交换速度就是最快的</span></p><p><strong><code>PC0</code><span> ping </span><code>PC1</code><span> 前的交换机0的</span><code>MAC Table</code><span>:</span></strong></p><p>&nbsp;</p><p><img src="packet%20tracer.assets/image-20221216150716993.png" referrerpolicy="no-referrer" alt="image-20221216150716993"></p><figure><table><thead><tr><th><span>机器名</span></th><th><span>IP</span></th><th><span>子网掩码</span></th></tr></thead><tbody><tr><td><span>PC4</span></td><td><span>192.168.1.1</span></td><td><span>255.255.255.0</span></td></tr><tr><td><span>PC5</span></td><td><span>192.168.1.2</span></td><td><span>255.255.255.0</span></td></tr><tr><td><span>PC6</span></td><td><span>192.168.1.3</span></td><td><span>255.255.255.0</span></td></tr></tbody></table></figure><p><strong><span>HUB的一个端口发送数据时，不会主动的发给目的端口，而是向每一个端口都发出信息。使用SWITCH连接网段，如果源端口与目的端口在同一网段，信息将不会通过SWITCH进入另一网段。</span></strong></p><p>&nbsp;</p><p>&nbsp;</p><h2><a name="交换机接口地址列表-n67" class="md-header-anchor"></a><span>交换机接口地址列表</span></h2><p><img src="packet%20tracer.assets/image-20221216150814431.png" referrerpolicy="no-referrer" alt="image-20221216150814431"></p><p><span>使用pc0去ping一下pc1</span></p><p><img src="packet%20tracer.assets/image-20221216150914953.png" alt="image-20221216150914953" style="zoom: 67%;" /></p><p><span>再次查看MAC Table</span></p><p><img src="packet%20tracer.assets/image-20221216150930846.png" referrerpolicy="no-referrer" alt="image-20221216150930846"></p><p><span>多了两条记录，分别是记载了2号和2号端口对应的物理地址，也就是PC0和PC1对应的物理地址</span></p><p><img src="packet%20tracer.assets/image-20221216151037407.png" referrerpolicy="no-referrer" alt="image-20221216151037407"></p><p>&nbsp;</p><p><span>二层交换机是一种即插即用的多接口设备，它对于收到的帧有 3 种处理方式：广播、转发和丢弃（请弄清楚何时进行何种操作）。那么，要转发成功，则交换机中必须要有接口地址列表即 MAC 表，该表是交换机通过学习自动得到的！</span></p><p><span>查找端口地址-地址列表，同端口丢弃，其他端口转发，如果地址列表没有，则广播该子网中是否有地址主机，空则写入。</span></p><h2><a name="生成树协议stp）" class="md-header-anchor"></a><span>生成树协议（STP）</span></h2><p><span>使用交换机，构建如下拓扑：</span></p><p><img src="packet%20tracer.assets/image-20221216151402999.png" alt="image-20221216151402999" style="zoom:67%;" /></p><p><span>这是初始时的状态。我们可以看到交换机之间有回路，这会造成广播帧循环传送即形成广播风暴，严重影响网络性能。</span></p><p><span>而交换机中运行的</span><strong><span>STP 协议</span></strong><span>能避免交换机之间发生广播循环风暴。交换机将自动通过生成树协议（STP）对多余的线路进行自动阻塞</span></p><p><img src="packet%20tracer.assets/image-20221216151418221.png" alt="image-20221216151418221" style="zoom: 67%;" /></p><p>&nbsp;</p><p><span>也就是说现在线路，从逻辑上来说其实是这样的，剩下两条被自动阻塞了</span></p><p><img src="packet%20tracer.assets/image-20221216151449143.png" alt="image-20221216151449143" style="zoom:67%;" /></p><p><span>可以用</span><code>Simulation</code><span>模拟方式详细看出来</span></p><p><img src="packet%20tracer.assets/image-20221216151638105.png" alt="image-20221216151638105" style="zoom:67%;" /></p><p>&nbsp;</p><h2><a name="路由器配置初步" class="md-header-anchor"></a><span>路由器配置初步</span></h2><p><strong><span>设计网络，模拟重庆交通大学和重庆大学两个网络</span></strong></p><ol start='' ><li><p><strong><span>配置路由器，添加广域网模块</span></strong></p><p><img src="packet%20tracer.assets/image-20221218210542273.png" alt="image-20221218210542273" style="zoom:67%;" /></p></li><li><p><span>左边路由器是交通大学的，其下使用交换机连接交通大学的网络，分配网络号 </span><code>192.168.1.0/24</code><span>，该路由器接口也是交通大学网络的网关，分配 IP 为 </span><code>192.168.1.1</code></p></li></ol><p><img src="packet%20tracer.assets/image-20221218210355565.png" alt="image-20221218210355565" style="zoom:67%;" /></p><ol start='3' ><li><span>右边路由器是重庆大学的，其下使用交换机连接重庆大学的网络，分配网络号 </span><code>192.168.3.0/24</code><span>，该路由器接口也是重庆大学网络的网关，分配 IP 为 </span><code>192.168.3.1</code></li></ol><p><img src="packet%20tracer.assets/image-20221218210451801.png" alt="image-20221218210451801" style="zoom:67%;" /></p><ol start='4' ><li><p><strong><span>配置广域网</span></strong></p><p><span>在模拟的广域网连接中需注意 DCE 和 DTE 端，在 DCE 端需配置时钟频率 </span><code>64000</code></p><p><span>两个路由器之间使用广域网接口相连，也是一个子网，分配网络号 </span><code>192.168.2.0/24</code></p></li></ol><p><img src="packet%20tracer.assets/image-20221218210619545.png" alt="image-20221218210619545" style="zoom:67%;" /></p><p><img src="packet%20tracer.assets/image-20221218210647315.png" alt="image-20221218210647315" style="zoom:67%;" /></p><ol start='5' ><li><p><strong><span>笔记本配置接口</span></strong></p><p><img src="packet%20tracer.assets/image-20221218210755019.png" alt="image-20221218210755019" style="zoom: 67%;" /></p></li><li><p><strong><span>配置PC</span></strong></p></li></ol><figure><table><thead><tr><th><strong><span>节点名</span></strong></th><th><strong><span>IP</span></strong></th><th><strong><span>子网掩码</span></strong></th><th><strong><span>网关</span></strong></th></tr></thead><tbody><tr><td><span>交通大学 PC19</span></td><td><span>192.168.1.2</span></td><td><span>255.255.255.0</span></td><td><span>192.168.1.1</span></td></tr><tr><td><span>交通大学 PC20</span></td><td><span>192.168.1.3</span></td><td><span>255.255.255.0</span></td><td><span>192.168.1.1</span></td></tr><tr><td><span>重庆大学 PC21</span></td><td><span>192.168.3.2</span></td><td><span>255.255.255.0</span></td><td><span>192.168.3.1</span></td></tr><tr><td><span>重庆大学 PC22</span></td><td><span>192.168.3.3</span></td><td><span>255.255.255.0</span></td><td><span>192.168.3.1</span></td></tr></tbody></table></figure><blockquote><p><span>现在交通大学内的各 PC 及网关相互能 </span><code>ping</code><span> 通，重庆大学也类似。</span></p></blockquote><p><img src="packet%20tracer.assets/image-20221218211111976.png" alt="image-20221218211111976" style="zoom:67%;" /></p><p>&nbsp;</p><blockquote><p><span>但不能从交大的 PC </span><code>ping</code><span> 通重大的 PC，反之亦然，也即不能跨子网。为什么？</span></p></blockquote><p><span>使用放大镜查看重庆交通大学路由器，发现没有重庆大学的路径</span></p><p><img src="packet%20tracer.assets/image-20221218211031912.png" alt="image-20221218211031912" style="zoom:67%;" /></p><h2><a name="静态路由" class="md-header-anchor"></a><span>静态路由</span></h2><p><span>静态路由是非自适应性路由协议，是由网络管理人员手动配置的，不能够根据网络拓扑的变化而改变。 因此，静态路由简单高效，适用于结构非常简单的网络。</span></p><p><img src="packet%20tracer.assets/image-20221218211245750.png" alt="image-20221218211245750" style="zoom:67%;" /></p><p><span>设置重庆交通大学路由器，告诉他到</span><code>192.168.3.0</code><span>这个网络的下一跳是</span><code>192.168.2.2</code><span>（也就是重庆大学的路由器）</span></p><p><span>同样设置重庆大学路由器，告诉他到</span><code>192.168.1.0</code><span>这个网络下一跳是</span><code>192.168.2.1</code><span>（也就是重庆交通大学路由器）</span></p><p><img src="packet%20tracer.assets/image-20221218211323256.png" alt="image-20221218211323256" style="zoom:67%;" /></p><p><img src="packet%20tracer.assets/image-20221218211341217.png" alt="image-20221218211341217" style="zoom:67%;" /></p><h2><a name="动态路由" class="md-header-anchor"></a><span>动态路由</span></h2><p><span>动态路由协议采用自适应路由算法，能够根据网络拓扑的变化而重新计算机最佳路由。</span></p><p><code>RIP</code><span>的全称是 Routing Information Protocol，是距离矢量路由的代表（目前虽然淘汰，但可作为我们学习的对象）。使用 RIP 协议只需要告诉路由器直接相连有哪些网络即可，然后 RIP 根据算法自动构建出路由表。</span></p><ol start='' ><li><p><span>清除静态路由配置</span></p><blockquote><p><span>Router(config)#no ip route 192.168.1.0 255.255.255.0 192.168.2.1</span></p><p><span>Router(config)#no ip route 192.168.3.0 255.255.255.0 192.168.2.2</span></p></blockquote></li></ol><p><span>分别在重庆大学、重庆交通大学路由器执行，清除掉静态路由</span></p><ol start='' ><li><p><span>设置RIP路由</span></p><blockquote><p><span>重庆交通大学</span></p></blockquote><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config)#router rip</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config-router)#network 192.168.1.0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config-router)#network 192.168.2.0</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 60px;"></div><div class="CodeMirror-gutters" style="display: none; height: 60px;"></div></div></div></pre><blockquote><p><span>重庆大学</span></p></blockquote></li></ol><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config)#router rip</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config-router)#network 192.168.3.0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config-router)#network 192.168.2.0</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 60px;"></div><div class="CodeMirror-gutters" style="display: none; height: 60px;"></div></div></div></pre><p><img src="packet%20tracer.assets/image-20221218211323256.png" alt="image-20221218211323256" style="zoom:67%;" /></p><h2><a name="动态路由ospf" class="md-header-anchor"></a><span>动态路由OSPF</span></h2><ol start='' ><li><span>清除RIP路由</span></li></ol><p><img src="packet%20tracer.assets/424da4f136df4a8f91897ce8a68aa149.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><p><span>使用</span><code>no router rip</code><span>一键去除</span></p><ol start='2' ><li><span>配置OSPF路由</span></li></ol><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">重庆交通大学</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config)#router ospf 1 &nbsp; // 启用 OSPF 路由协议，进程号为1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config-router)#network 192.168.1.0 0.0.0.255 area 0 &nbsp; // 自治域0中的属于 192.168.1.0/24 网络的所有主机（反向掩码）参与 OSPF</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config-router)#network 192.168.2.0 0.0.0.255 area 0 &nbsp; // 自治域0中的属于 192.168.2.0/24 网络的所有主机（反向掩码）参与 OSPF</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 120px;"></div><div class="CodeMirror-gutters" style="display: none; height: 120px;"></div></div></div></pre><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">重庆大学</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config)#router ospf 1 &nbsp; // 启用 OSPF 路由协议，进程号为1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config-router)#network 192.168.3.0 0.0.0.255 area 0 &nbsp; // 自治域0中的属于 192.168.3.0/24 网络的所有主机（反向掩码）参与 OSPF</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Router(config-router)#network 192.168.2.0 0.0.0.255 area 0 &nbsp; // 自治域0中的属于 192.168.2.0/24 网络的所有主机（反向掩码）参与 OSPF</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 120px;"></div><div class="CodeMirror-gutters" style="display: none; height: 120px;"></div></div></div></pre><p><img src="packet%20tracer.assets/image-20221221112948535.png" referrerpolicy="no-referrer" alt="image-20221221112948535"></p><p><img src="packet%20tracer.assets/image-20221221114206591.png" referrerpolicy="no-referrer" alt="image-20221221114206591"></p><p>&nbsp;</p><p><img src="packet%20tracer.assets/image-20221218212429487.png" alt="image-20221218212429487" style="zoom:67%;" /></p><p>&nbsp;</p><p><span>查看路由表可看到标记为 O 的一条路由，O 表示 OSPF 。</span></p><p><span>至此，这些 PC 能全部相互 </span><code>ping</code><span> 通！</span></p><h2><a name="基于端口的网络地址翻译pat" class="md-header-anchor"></a><span>基于端口的网络地址翻译PAT</span></h2><p><span>网络地址转换（NAT，Network Address Translation）被各个 Internet 服务商即 ISP  广泛应用于它们的网络中，也包括 WiFi 网络。 原因很简单，NAT 不仅完美地解决了 lP  地址不足的问题，而且还能够有效地避免来自网络外部的攻击，隐藏并保护网络内部的计算机。</span></p><p><span>NAT 的实现方式一般有三种：</span></p><ul><li><span>静态转换： Static NAT</span></li><li><span>动态转换： Dynamic NAT</span></li><li><span>端口多路复用： OverLoad</span></li></ul><p><span>端口多路复用使用最多也最灵活。OverLoad 是指不仅改变发向 Internet 数据包的源 IP 地址，同时还改变其源端口，即进行了端口地址转换（PAT，Port Address Translation）。</span></p><p><span>采用端口多路复用方式，</span><strong><span>内部网络的所有主机均可共享一个合法外部 IP 地址实现对 Internet 的访问</span></strong><span>，从而可以最大限度地节约IP地址资源。 同时，又可隐藏网络内部的所有主机，有效避免来自 Internet 的攻击。因此，</span><strong><span>目前网络中应用最多的就是端口多路复用方式</span></strong><span>。</span></p><p><span>接下来我们尝试继续使用重庆交通大学和重庆大学网络来</span><code>广域网实施PAT</code></p><ol start='' ><li><span>更改PC网络配置，将重庆大学视作外部ip，然后交通大学使用内部ip</span><code>192.168.1.0/24</code></li></ol><figure><table><thead><tr><th><strong><span>节点名</span></strong></th><th><strong><span>IP</span></strong></th><th><strong><span>子网掩码</span></strong></th><th><strong><span>网关</span></strong></th></tr></thead><tbody><tr><td><span>交通大学 PC0</span></td><td><span>192.168.1.2</span></td><td><span>255.255.255.0</span></td><td><span>192.168.1.1</span></td></tr><tr><td><span>交通大学 PC1</span></td><td><span>192.168.1.3</span></td><td><span>255.255.255.0</span></td><td><span>192.168.1.1</span></td></tr><tr><td><span>重庆大学 PC2</span></td><td><span>8.8.8.2</span></td><td><span>255.255.255.0</span></td><td><span>8.8.8.1</span></td></tr><tr><td><span>重庆大学 PC3</span></td><td><span>8.8.8.3</span></td><td><span>255.255.255.0</span></td><td><span>8.8.8.1</span></td></tr></tbody></table></figure><p><span>两个路由器之间使用外部 IP 地址（</span><code>202.202.240.0/24</code><span>）</span></p><ol start='2' ><li><span>拓扑图中路由器各接口配置数据如下：</span></li></ol><figure><table><thead><tr><th><strong><span>接口名</span></strong></th><th><strong><span>IP</span></strong></th><th><strong><span>子网掩码</span></strong></th></tr></thead><tbody><tr><td><span>交通大学 Router2 以太网口</span></td><td><span>192.168.1.1</span></td><td><span>255.255.255.0</span></td></tr><tr><td><span>交通大学 Router2 广域网口</span></td><td><span>202.202.240.1</span></td><td><span>255.255.255.0</span></td></tr><tr><td><span>重庆大学 Router3 以太网口</span></td><td><span>8.8.8.1</span></td><td><span>255.255.255.0</span></td></tr><tr><td><span>重庆大学 Router3 广域网口</span></td><td><span>202.202.240.2</span></td><td><span>255.255.255.0</span></td></tr></tbody></table></figure><p><span>按照前面的方法，配置成功，</span></p><p><img src="packet%20tracer.assets/image-20221221115319298.png" alt="image-20221221115319298" style="zoom:67%;" /></p><p><img src="packet%20tracer.assets/image-20221221115332290.png" alt="image-20221221115332290" style="zoom:67%;" /></p><p><img src="packet%20tracer.assets/image-20221221115402488.png" alt="image-20221221115402488" style="zoom:67%;" /></p><p><span>接口设置：</span></p><p><img src="packet%20tracer.assets/image-20221221115559359.png" alt="image-20221221115559359" style="zoom:67%;" /></p><p><img src="packet%20tracer.assets/image-20221221115606854.png" alt="image-20221221115606854" style="zoom:67%;" /></p><p><span>ospf 路由配置与上一节相同。</span></p><p><span>如在交通大学内部使用 PC0（</span><code>192.168.1.2</code><span>）来 </span><code>ping</code><span> 重庆大学的PC2（</span><code>8.8.8.2</code><span>）</span></p><p><img src="packet%20tracer.assets/image-20221221115647879.png" alt="image-20221221115647879" style="zoom:67%;" /></p><p><strong><span>重庆大学路由器丢包的配置：</span></strong></p><p><span>下面我们将重庆大学的路由器看着 Internet 中的骨干路由器，那么这些路由器将不会转发内部/私有 IP 地址的包（直接丢弃）。我们通过在重庆大学路由器上实施访问控制 ACL ，即丢弃来自交通大学（私有 IP 地址）的包来模拟这个丢包的过程。</span></p><p><img src="packet%20tracer.assets/image-20221221120459813.png" alt="image-20221221120459813" style="zoom:67%;" /></p><p><span>此时，再使用交通大学内部的 PC0（</span><code>192.168.1.2</code><span>）来 </span><code>ping</code><span> 重庆大学的 PC2（</span><code>8.8.8.2</code><span>）就不成功了，会显示目的主机不可到达（</span><code>Destination host unreachable</code><span>）信息。</span></p><p><img src="packet%20tracer.assets/image-20221221120510174.png" alt="image-20221221120510174" style="zoom:67%;" /></p><p><strong><span>交通大学路由器 PAT 配置：</span></strong></p><p><span>下面，我们就开始实施 PAT。即：我们将会在交通大学路由器的出口上将内部/私有 IP 地址转换为外部/公开 IP，从而包的源 IP 发生了改变，就不会被重庆大学路由器丢弃，因此网络连通。</span></p><p><img src="packet%20tracer.assets/image-20221221120526078.png" alt="image-20221221120526078" style="zoom:67%;" /></p><p><span>现在，再次使用交通大学内部的 PC0（</span><code>192.168.1.2</code><span>）来 </span><code>ping</code><span> 重庆大学的PC2（</span><code>8.8.8.2</code><span>）。</span></p><p><img src="packet%20tracer.assets/image-20221221120543534.png" alt="image-20221221120543534" style="zoom:67%;" /></p><h2><a name="虚拟局域网vlan" class="md-header-anchor"></a><span>虚拟局域网VLAN</span></h2><p><code>VLAN</code><span>（Virtual Local Area Network）即虚拟局域网。通过划分 VLAN，我们可以把一个物理网络划分为多个逻辑网段即多个子网。</span></p><p><span>划分 VLAN 后可以杜绝网络广播风暴，增强网络的安全性，便于进行统一管理等。</span></p><p><strong><span>在 CPT 中构建如下图所示拓扑：</span></strong></p><p><img src="packet%20tracer.assets/image-20221225111030992.png" referrerpolicy="no-referrer" alt="image-20221225111030992"></p><p><span>Cisco 2960 交换机是支持 VLAN 的交换机，共有 24 个 100M 和 2 个 1000M 以太网口。默认所有的接口都在 </span><code>VLAN 1</code><span> 中，故此时连接上来的计算机都处于同一 VLAN，可以进行通信。</span></p><p><span>下面我们就该交换机的 24 个 100M 接口分为 3 个部分，划分到 3 个不同的 VLAN 中，id 号分别设为 10、20、30，且设置别名（computer、communication、electronic）以利于区分和管理。</span></p><p><strong><span>交换机 VLAN 配置：</span></strong></p><p><img src="packet%20tracer.assets/image-20221225111258223.png" alt="image-20221225111258223" style="zoom:67%;" /></p><p><span>至此，在该交换机上我们就划分了 3 个 VLAN（不包括缺省的 VLAN 1）。</span></p><p><span>各 VLAN 下 PC 的网络配置及连接的交换机接口如下表：</span></p><figure><table><thead><tr><th><strong><span>机器名</span></strong></th><th><strong><span>连接的接口</span></strong></th><th><strong><span>所属VLAN</span></strong></th><th><strong><span>IP</span></strong></th><th><strong><span>子网掩码</span></strong></th><th><strong><span>网关</span></strong></th></tr></thead><tbody><tr><td><span>PC0</span></td><td><span>F0/1</span></td><td><span>VLAN 10</span></td><td><span>192.168.0.2</span></td><td><span>255.255.255.0</span></td><td><span>192.168.0.1</span></td></tr><tr><td><span>PC1</span></td><td><span>F0/2</span></td><td><span>VLAN 10</span></td><td><span>192.168.0.3</span></td><td><span>255.255.255.0</span></td><td><span>192.168.0.1</span></td></tr><tr><td><span>PC2</span></td><td><span>F0/17</span></td><td><span>VLAN 30</span></td><td><span>192.168.2.2</span></td><td><span>255.255.255.0</span></td><td><span>192.168.2.1</span></td></tr><tr><td><span>PC3</span></td><td><span>F0/9</span></td><td><span>VLAN 20</span></td><td><span>192.168.1.2</span></td><td><span>255.255.255.0</span></td><td><span>192.168.1.1</span></td></tr><tr><td><span>PC4</span></td><td><span>F0/10</span></td><td><span>VLAN 20</span></td><td><span>192.168.1.3</span></td><td><span>255.255.255.0</span></td><td><span>192.168.1.1</span></td></tr><tr><td><span>PC5</span></td><td><span>F0/18</span></td><td><span>VLAN 30</span></td><td><span>192.168.2.3</span></td><td><span>255.255.255.0</span></td><td><span>192.168.2.1</span></td></tr><tr><td><span>PC6</span></td><td><span>F0/19</span></td><td><span>VLAN 30</span></td><td><span>192.168.2.4</span></td><td><span>255.255.255.0</span></td><td><span>192.168.2.1</span></td></tr></tbody></table></figure><p><span>此时可以使用 </span><code>ping</code><span> 命令进行测试，你会发现只有在同一 VLAN 中的 PC 才能通信，且广播也局限于该 VLAN。</span></p><p>&nbsp;</p><p><img src="packet%20tracer.assets/image-20221225111323886.png" alt="image-20221225111323886" style="zoom:67%;" /></p><blockquote><p><span>✎ </span><strong><span>思考</span></strong></p><p><span>分析一下当前为何不同 VLAN 中的 PC 不能通信？网关在此起什么作用？我们的网关又在何处？如何发起广播测试？</span></p></blockquote><ol start='' ><li><span>VLAN具有分割网络的作用，因此不能通信</span></li><li><span>VLAN只是链路层协议，划分广播域，而不需要考虑IP；网关是用来进行协议转换的。不同的网段之间需要通信一定需要网关。</span></li><li><span>若是要发起广播测试，那么就要引入三层设备。</span></li></ol><h2><a name="十二虚拟局域网管理-vtp" class="md-header-anchor"></a><span>十二、虚拟局域网管理 VTP</span></h2><blockquote><p><span>VTP（VLAN Trunk Protocol）即 VLAN 中继协议。VTP 通过 ISL 帧或 Cisco 私有 DTP 帧（可查阅相关资料了解）保持 VLAN 配置统一性，也被称为虚拟局域网干道协议，它是思科私有协议。 VTP 统一管理、增加、删除、调整VLAN，自动地将信息向网络中其它的交换机广播。</span></p><p><span>此外，VTP 减小了那些可能导致安全问题的配置，只要在 VTP Server 做相应设置，VTP Client 会自动学习 VTP Server 上的 VLAN 信息。</span></p></blockquote><p><span>为演示 VTP，重新构建如下拓扑结构：</span></p><p><img src="packet%20tracer.assets/image-20221225111347709.png" alt="image-20221225111347709" style="zoom: 67%;" /></p><p><span>我们将在核心交换机 3560上进行如下工作：</span></p><ol start='' ><li><span>设置为 </span><code>server</code><span> 模式，VTP 域为 </span><code>cqjtu</code></li><li><span>新建 </span><code>VLAN 2</code><span>，网络号 </span><code>192.168.1.0/24</code><span>，网关 </span><code>192.168.1.1</code></li><li><span>新建 </span><code>VLAN 3</code><span>，网络号 </span><code>192.168.2.0/24</code><span>，网关 </span><code>192.168.2.1</code></li></ol><p><strong><span>3560 VTP Server 配置：</span></strong></p><p><img src="packet%20tracer.assets/image-20221225111533118.png" alt="image-20221225111533118" style="zoom:67%;" /></p><p><span>我们将在左边交换机 2960A 上进行如下工作：</span></p><ol start='' ><li><span>加入名为 </span><code>cqjtu</code><span> 的 VTP 域</span></li><li><span>配置与核心交换机 3560 连接的千兆接口 </span><code>g0/1</code><span> 为 </span><code>trunk</code><span> 模式</span></li><li><span>将接口 </span><code>f0/1</code><span> 划分到 </span><code>VLAN 2</code><span> 中</span></li><li><span>将接口 </span><code>f0/2</code><span> 划分到 </span><code>VLAN 3</code><span> 中</span></li></ol><p><strong><span>2960A（左边） VTP Client 配置：</span></strong></p><p><img src="packet%20tracer.assets/image-20221225111549975.png" alt="image-20221225111549975" style="zoom:67%;" /></p><p><span>我们将在右边交换机 2960B 上进行同样的工作：</span></p><ol start='' ><li><span>加入名为 </span><code>cqjtu</code><span> VTP 域</span></li><li><span>配置与核心交换机 3560 连接的千兆接口 </span><code>g0/1</code><span> 为 </span><code>trunk</code><span> 模式</span></li><li><span>将接口 </span><code>f0/1</code><span> 划分到 </span><code>VLAN 2</code><span> 中</span></li><li><span>将接口 </span><code>f0/2</code><span> 划分到 </span><code>VLAN 3</code><span> 中</span></li></ol><p><strong><span>2960B（右边） VTP Client 配置：</span></strong></p><p><img src="packet%20tracer.assets/image-20221225111605014.png" alt="image-20221225111605014" style="zoom:67%;" /></p><p><span>至此，各交换机配置完毕。</span></p><p><span>各 PC 连接的交换机和接口以及网络配置如下：</span></p><figure><table><thead><tr><th><strong><span>机器名</span></strong></th><th><strong><span>连接的交换机和接口</span></strong></th><th><strong><span>所属VLAN</span></strong></th><th><strong><span>IP</span></strong></th><th><strong><span>子网掩码</span></strong></th><th><strong><span>网关</span></strong></th></tr></thead><tbody><tr><td><span>PC0</span></td><td><span>2960A-F0/1</span></td><td><span>VLAN 2</span></td><td><span>192.168.1.2</span></td><td><span>255.255.255.0</span></td><td><span>192.168.1.1</span></td></tr><tr><td><span>PC1</span></td><td><span>2960A-F0/2</span></td><td><span>VLAN 3</span></td><td><span>192.168.2.2</span></td><td><span>255.255.255.0</span></td><td><span>192.168.2.1</span></td></tr><tr><td><span>PC2</span></td><td><span>2960B-F0/1</span></td><td><span>VLAN 2</span></td><td><span>192.168.1.3</span></td><td><span>255.255.255.0</span></td><td><span>192.168.1.1</span></td></tr><tr><td><span>PC3</span></td><td><span>2960B-F0/2</span></td><td><span>VLAN 3</span></td><td><span>192.168.2.3</span></td><td><span>255.255.255.0</span></td><td><span>192.168.2.1</span></td></tr></tbody></table></figure><p><span>至此，VTP 配置完成。同 VLAN 可以 </span><code>ping</code><span> 通，而不同 VLAN 不行（即使在同一交换机下，如从 PC0 到 PC1），且能够方便的统一规划和管理。</span></p><blockquote><p><span>✎ </span><strong><span>试一试</span></strong></p><p><span>使用 PC0（</span><code>192.168.1.2</code><span>） </span><code>ping</code><span> PC1（</span><code>192.168.2.2</code><span>） 的结果如何？使用 PC0 </span><code>ping</code><span> PC2 的结果如何？想想为什么？</span></p></blockquote><p><img src="packet%20tracer.assets/image-20221225111745262.png" alt="image-20221225111745262" style="zoom:67%;" /></p><p><span>此时，Pc0和pc2在同一个vlan也就是vlan2下，而pc1和pc3在同一个vlan下，故0和2可以互ping，1和3可以互ping，但是两个vlan不能互ping</span></p><p>&nbsp;</p><h2><a name="十三vlan-间的通信" class="md-header-anchor"></a><span>十三、VLAN 间的通信</span></h2><p><span>VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得知，目前我们仍然不能在 VLAN 间通信。</span></p><p><span>因为默认的，VLAN 间是不允许进行通信，此时我们需要所谓的独臂路由器在 VLAN 间为其进行转发！</span></p><p><span>我们使用的核心交换机 3560 是个 3 层交换机，可工作在网络层，也称路由交换机，即具有路由功能，能进行这种转发操作。</span></p><p><span>对其进行如下操作：</span></p><p><img src="packet%20tracer.assets/image-20221225111808256.png" alt="image-20221225111808256" style="zoom:67%;" /></p><p>&nbsp;</p><p><span>至此，各 VLAN 中的 PC 可以正常通信。</span></p><blockquote><p><span>✎ </span><strong><span>试一试</span></strong></p><p><span>现在再使用 PC0（</span><code>192.168.1.2</code><span>） </span><code>ping</code><span> PC1（</span><code>192.168.2.2</code><span>） 的结果如何？使用 PC0 </span><code>ping</code><span> PC2 的结果如何？</span></p></blockquote><p><img src="packet%20tracer.assets/image-20221225111828544.png" alt="image-20221225111828544" style="zoom:67%;" /></p><p><span>第一个包超时，第一次路由，会比较慢，但是每次都要这样的话，很费事，所以有了如下。</span></p><blockquote><p><span>tips: 现实多使用</span><code>一次路由多次交换</code></p><p><span>简单地说，三层交换在完成对收到的第一个新数据流进行路由后，产生一个MAC地址与IP地址的映射表，当具有相同地址信息的数据流再次通过时，即根据此表直接在二层完成转发，即“一次路由，多次交换”，有效提高了数据包转发的效</span></p></blockquote><h2><a name="十四dhcpdns及web服务器简单配置" class="md-header-anchor"></a><span>十四、DHCP、DNS及Web服务器简单配置</span></h2><p><span>动态主机配置 DHCP、域名解析 DNS 以及 Web 服务在日常应用中作用巨大，我们构建如下简单的拓扑来进行练习。</span></p><p><img src="packet%20tracer.assets/image-20221225111841831.png" alt="image-20221225111841831" style="zoom:67%;" /></p><p><span>该拓扑中，服务器及客户机都连在同一交换机上。为简单起见，服务器 Server-PT 同时作为 DHCP、DNS 以及 Web 服务器，各客户机无需配置，将自动获取网络配置。</span></p><p><span>点击 CPT 拓扑图中的 Server 图标，设置其静态 IP 地址为 </span><code>19.89.6.4/24</code><span>，然后选择 </span><code>Service</code><span> 进行如下相关配置：</span></p><figure><table><thead><tr><th><strong><span>机器名</span></strong></th><th><strong><span>配置项目</span></strong></th><th><strong><span>说明</span></strong></th></tr></thead><tbody><tr><td><span>Server</span></td><td><span>HTTP</span></td><td><span>开启即可</span></td></tr><tr><td><span>Server</span></td><td><span>DNS</span></td><td><span>19.89.6.4：</span><a href='http://www.google.com' target='_blank' class='url'>www.google.com</a><span>、</span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a></td></tr><tr><td><span>Server</span></td><td><span>DHCP</span></td><td><span>地址池开始地址：19.89.6.10/24，并返回DNS地址</span></td></tr><tr><td><span>PC</span></td><td><span>网络配置</span></td><td><span>自动获取</span></td></tr></tbody></table></figure><p><span>设置其静态 IP 地址为 </span><code>19.89.6.4/24</code></p><p><img src="packet%20tracer.assets/image-20221225111857565.png" alt="image-20221225111857565" style="zoom:67%;" /></p><p><span>选择 </span><code>Service</code><span> 进行相关配置：</span></p><p><img src="packet%20tracer.assets/image-20221225111909910.png" alt="image-20221225111909910" style="zoom:67%;" /></p><p><img src="packet%20tracer.assets/image-20221225112615947.png" alt="image-20221225112615947" style="zoom:67%;" /></p><p><span>配置PC:</span></p><p><img src="packet%20tracer.assets/image-20221225112906309.png" alt="image-20221225112906309" style="zoom: 67%;" /></p><p><img src="packet%20tracer.assets/image-20221225112912888.png" alt="image-20221225112912888" style="zoom:67%;" /></p><p><span>自动获取成功了。</span></p><blockquote><p><span>打开web browser，试试用19.89.6.4能否访问</span></p></blockquote><p><img src="packet%20tracer.assets/image-20221225112954073.png" alt="image-20221225112954073" style="zoom:67%;" /></p><h2><a name="十五wlan初步配置" class="md-header-anchor"></a><span>十五、WLAN初步配置</span></h2><p><span>WLAN 即 WiFi 当前也是广泛的应用在各种场景。</span></p><p><span>我们通过构建如下拓扑的一个家庭 WLAN 来练习一下其相关的配置：</span></p><p><img src="packet%20tracer.assets/image-20221225113711662.png" alt="image-20221225113711662" style="zoom:67%;" /></p><blockquote><p><span>tips : 笔记本及台式机默认只有有线网卡，请先关机，在关机状态下删除有线网卡，添加无线网卡，然后再开机。</span></p></blockquote><p><img src="packet%20tracer.assets/image-20221225113730359.png" alt="image-20221225113730359" style="zoom:67%;" /></p><p><img src="packet%20tracer.assets/image-20221225113746279.png" alt="image-20221225113746279" style="zoom:67%;" /></p><p><span>无线路由器的基本网络配置:</span></p><p><img src="packet%20tracer.assets/image-20221225113805777.png" alt="image-20221225113805777" style="zoom:67%;" /></p><p><span>基本装上无线网卡后，启动了就可以DHCP自动获取ip/子网掩码/网关/DNS了</span></p><p><img src="packet%20tracer.assets/image-20221225113825220.png" alt="image-20221225113825220" style="zoom:67%;" /></p><p><img src="packet%20tracer.assets/image-20221225113835377.png" alt="image-20221225113835377" style="zoom:67%;" /></p><p><span>最后使用PC2 ping 笔记本，成功。</span></p><h2><a name="小结" class="md-header-anchor"></a><span>小结</span></h2><p><span>经过三次实验，基本上可以说是从各个方面对计算机网络都有了基础的认知，为什么不能上网，怎么上网，怎么控制上网，能上那里的网等等，这些东西都有了一些清晰的解答，基本让我再次理清楚了网络的大概，之后有兴趣的地方可以针对性的研究下去了。</span></p><p>&nbsp;</p></div>
+</body>
+</html>
